@@ -25,7 +25,7 @@ source 'https://rubygems.org'
    gem 'rspec-rails', '~> 3.0'
    gem 'rails-controller-testing'
  end
- 
+
  # Use Puma as the app server
  gem 'puma', '~> 3.0'
  # Use SCSS for stylesheets
@@ -45,3 +45,5 @@ source 'https://rubygems.org'
  group :development do
    gem 'listen', '~> 3.0.5'
  end
+
+ gem 'bootstrap-sass'
