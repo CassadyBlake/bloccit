@@ -23,11 +23,19 @@ posts = Post.all
   )
 end
 
-20.times do
+10.times do
   Advertisement.create!(
     title: RandomData.random_sentence,
     copy: RandomData.random_paragraph,
     price: RandomData.random_number
+  )
+end
+
+10.times do
+  Question.create!(
+    title: RandomData.random_sentence,
+    body: RandomData.random_paragraph,
+    resolved: false
   )
 end
 
@@ -40,3 +48,5 @@ puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 
 puts "#{Advertisement.count} Ads created"
+
+puts "#{Question.count} Questions created"

@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Question, type: :model do
-  let(:question) {Question.create!(title: "New Question Title", body: "New Question Body", resolved: false) }
+  let(:question) { Question.create!( title: "My New Question", body: "My new question's body", resolved: false ) }
 
   describe "attributes" do
-    it "has title and body attributes, and is unresolved" do 
-      expect(question).to have_attributes(title: "New Question Title", body: "New Question Body", resolved: false)
+    it "has title, body and resolved attributes" do
+      expect(question).to have_attributes(title: "My New Question", body: "My new question's body", resolved: false)
     end
   end
 end
