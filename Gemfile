@@ -26,6 +26,7 @@ source 'https://rubygems.org'
    gem 'rails-controller-testing'
  end
 
+gem 'jquery-rails'
  # Use Puma as the app server
  gem 'puma', '~> 3.0'
  # Use SCSS for stylesheets
