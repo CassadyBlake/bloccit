@@ -39,9 +39,9 @@ end
   )
 end
 
-Post.find_or_create_by!(title: "Unique Post Title", body: "Unique post body, with interesting content")
+uniq_post = Post.find_or_create_by!(title: "Unique Post Title", body: "Unique post body, with interesting content")
 
-Comment.find_or_create_by!(body: "Unique comment, with interesting content", post: Post.find_or_create_by!(title: "Unique Post Title"))
+Comment.find_or_create_by!(body: "Unique comment, with interesting content", post: uniq_post)
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
