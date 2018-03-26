@@ -48,8 +48,7 @@ end
   )
 end
 
-uniq_post = Post.find_or_create_by!(title: "Unique Post Title", body: "Unique post body, with interesting content")
-
+uniq_post = Post.find_or_create_by!(topic: topics.sample, title: "Unique Post Title", body: "Unique post body, with interesting content")
 Comment.find_or_create_by!(body: "Unique comment, with interesting content", post: uniq_post)
 
 puts "Seed finished"
