@@ -17,10 +17,11 @@ end
 topics = Topic.all
 
 10.times do
-  Sponsored_post.create!(
+  SponsoredPost.create!(
     topic: topics.sample,
     title: RandomData.random_sentence,
-    body: RandomData.random_paragraph
+    body: RandomData.random_paragraph,
+    price: RandomData.random_number
   )
 end
 
@@ -62,6 +63,7 @@ Comment.find_or_create_by!(body: "Unique comment, with interesting content", pos
 puts "Seed finished"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
+puts "#{SponsoredPost.count} sponsored posts created"
 puts "#{Comment.count} comments created"
 puts "#{Advertisement.count} Ads created"
 puts "#{Question.count} Questions created"

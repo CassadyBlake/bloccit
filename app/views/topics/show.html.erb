@@ -15,11 +15,27 @@
            <small>
              submitted <%= time_ago_in_words(p.created_at) %> ago <br>
              <%= p.comments.count %> Comments
+           </small>
          </div>
        </div>
      <% end %>
-   </div>
-   <div class="col-md-4">
-     <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
-   </div>
+   <h3>SPONSORED POSTS</h3>
+   <% @topic.sponsored_posts.each do |sp| %>
+     <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to sp.title, topic_sponsored_post_path(@topic, sp) %>
+          </h4>
+          <h3>Price: $<%= sp.price %></h3>
+          <small>
+            submitted <%= time_ago_in_words(sp.created_at) %> ago
+          </small>
+        </div>
+      </div >
+    <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
+      <%= link_to "New Sponsored Post", new_topic_sponsored_post_path(@topic), class: 'btn btn-success' %>
+    </div>
   </div>
