@@ -28,8 +28,8 @@ RSpec.describe User, type: :model do
   end
 
   describe "invalid user" do
-    let(:user_with_invalid_name) { User.new(name: "", email: "user@gmail.com") }
-    let(:user_with_invalid_email) { User.new(name: "Bloccit User", email: "") }
+    let(:user_with_invalid_name) { User.new(name: "", email: "user@gmail.com", password: "abc123") }
+    let(:user_with_invalid_email) { User.new(name: "Bloccit User", email: "", password: "abc123") }
 
     it "should be an invalid user due to blank name" do
       expect(user_with_invalid_name).to_not be_valid
@@ -37,6 +37,21 @@ RSpec.describe User, type: :model do
 
     it "should be an invalid user due to blank email" do
       expect(user_with_invalid_email).to_not be_valid
+    end
+  end
+
+  describe "format user names" do
+    let(:non_formatted_user) { User.new(name: "mike greenlee", email: "mike@gmail.com", password: "abc123") }
+    let(:already_formatted_user) { User.new(name: "Mark GreeNtree", email: "mike@gmail.com", password: "abc123") }
+
+    it "should format un-formatted name to be capitalized" do
+      non_formatted_user.save
+      expect(non_formatted_user.name).to eq ("Mike Greenlee")
+    end
+
+    it "should format already-formatted name to be the same" do
+      already_formatted_user.save
+      expect(already_formatted_user.name).to eq ("Mark Greentree")
     end
   end
 end
