@@ -13,7 +13,7 @@
              <%= link_to p.title, topic_post_path(@topic, p) %>
            </h4>
            <small>
-             submitted <%= time_ago_in_words(p.created_at) %> ago <br>
+             submitted <%= time_ago_in_words(p.created_at) %> ago by <%= p.user.name %> <br>
              <%= p.comments.count %> Comments
            </small>
          </div>
