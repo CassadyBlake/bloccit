@@ -4,5 +4,10 @@ module ApplicationHelper
     css_class = 'form-group'
     css_class << ' has-error' if errors.any?
     content_tag :div, capture(&block), class: css_class
-  end 
+  end
+
+  def user_is_moderator?
+    current_user && current_user.moderator?
+  end
+  
 end
