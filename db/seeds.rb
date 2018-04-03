@@ -70,10 +70,17 @@ end
 uniq_post = Post.find_or_create_by!(topic: topics.sample, title: "Unique Post Title", body: "Unique post body, with interesting content", user: users.sample)
 Comment.find_or_create_by!(body: "Unique comment, with interesting content", post: uniq_post)
 
-user = User.first
-user.update_attributes!(
-  email: 'cassady.lillstrom@gmail.com',
-  password: 'abc123'
+admin = User.create!(
+  name: 'Admin User',
+  email: 'admin@example.com',
+  password: 'helloworld',
+  role: 'admin'
+)
+
+member = User.create!(
+  name: 'Member User',
+  email: 'member@example.com',
+  password: 'helloworld'
 )
 
 puts "Seed finished"
