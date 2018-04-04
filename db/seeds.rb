@@ -46,6 +46,7 @@ posts = Post.all
 
 100.times do
   Comment.create!(
+    user: users.sample,
     post: posts.sample,
     body: RandomData.random_paragraph
   )
@@ -68,7 +69,7 @@ end
 end
 
 uniq_post = Post.find_or_create_by!(topic: topics.sample, title: "Unique Post Title", body: "Unique post body, with interesting content", user: users.sample)
-Comment.find_or_create_by!(body: "Unique comment, with interesting content", post: uniq_post)
+Comment.find_or_create_by!(body: "Unique comment, with interesting content", post: uniq_post, user: users.sample)
 
 admin = User.create!(
   name: 'Admin User',
