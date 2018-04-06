@@ -91,7 +91,7 @@ moderator = User.create!(
 
 member = User.create!(
   name: 'Member User',
-  email: 'member@example.com',
+  email: 'cassady.lillstrom@gmail.com',
   password: 'helloworld'
 )
 
