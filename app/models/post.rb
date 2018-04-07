@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   after_create :create_vote
-  after_create :create_favorite
+  #after_create :create_favorite
 
   default_scope { order('rank DESC') }
   scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
