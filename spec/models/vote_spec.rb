@@ -5,7 +5,7 @@ RSpec.describe Vote, type: :model do
   let(:topic) { create(:topic) }
   let(:user) { create(:user) }
   let(:post) { create(:post) }
-  let(:vote) { Vote.create!(value: 1, post: post, user: user) }
+  let(:my_vote) { create(:vote, post: post, user: user) }
 
   it { is_expected.to belong_to(:post) }
   it { is_expected.to belong_to(:user) }
@@ -15,13 +15,13 @@ RSpec.describe Vote, type: :model do
 
   describe "update_post callback" do
     it "triggers update_post on save" do
-      expect(vote).to receive(:update_post).at_least(:once)
-      vote.save!
+      expect(my_vote).to receive(:update_post).at_least(:once)
+      my_vote.save!
     end
 
-    it "#update_post should call update_rank on post" do
+    it "#update_post should call update_rank on save" do
       expect(post).to receive(:update_rank).at_least(:once)
-      vote.save!
+      my_vote.save!
     end
   end
 end

@@ -16,11 +16,26 @@
          </small>
        </div>
      </div>
-   </div>
- </div>
+    <div class="media">
+      <% if user_has_no_posts?(@user) %>
+       <h2>"<%= @user.name %>" has not submitted any posts yet.</h2>
+      <% else %>
+        <h2>Posts</h2>
+        <%= render @user.posts %>
+      <% end %>
 
- <h2>Posts</h2>
- <%= render @user.posts %>
+      <% if user_has_no_comments?(@user) %>
+        <h2>"<%= @user.name %>" has not submitted any comments yet.</h2>
+      <% else %>
+      <h2>Comments</h2>
+        <%= render @user.comments %>
+      <% end %>
 
- <h2>Comments</h2>
- <%= render @user.comments %>
+      <h2>Favorited Posts</h2>
+      <% @user.favorites.each do |favorite| %>
+        <%= render partial: 'favorites/favoritedPost', locals: {favorite: favorite} %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
