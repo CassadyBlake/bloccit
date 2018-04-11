@@ -80,5 +80,10 @@ RSpec.describe UsersController, type: :controller do
       get :show, params: { id: factory_user.id }
       expect(assigns(:user)).to eq(factory_user)
     end
+
+    it "assigns @user.posts to @posts" do
+      get :show, params: { id: factory_user.id }
+      expect(assigns(:posts)).to eq(factory_user.posts)
+    end 
   end
 end
